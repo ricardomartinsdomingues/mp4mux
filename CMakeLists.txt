@@ -22,6 +22,7 @@ set(net_src
     src/net/LinuxUdpSocket.cpp
     src/net/Sock.cpp
     src/net/Rtp.cpp
+    src/net/RtpSession.cpp
 )
 
 set(all_src

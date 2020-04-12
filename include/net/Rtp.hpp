@@ -40,8 +40,8 @@ public:
 
 public:
     static Rtp decode(const char* buff, size_t count);
-    static Rtp decode(const buf::BufferSegment& buffSegment);
     static Rtp decode(const buf::Buffer& buff, size_t count, size_t offset = 0);
+    static Rtp decode(const buf::BufferSegment& buffSegment);
 
 public:
     uint16_t getVersion() const { return mRtpheader.version; }
@@ -62,6 +62,7 @@ private:
 
 public:
     constexpr static size_t kRTPHeaderMinSize = sizeof(RTPHeader);
+    constexpr static uint16_t kVersion = 2;
 };
 
 }} // namespace mux::net
