@@ -13,7 +13,7 @@
 
 #define INVALID_FD -1
 
-using namespace net;
+using namespace mux::net;
 
 UdpSocket::UdpSocket(uint16_t port)
     : UdpSocket("0.0.0.0", port)

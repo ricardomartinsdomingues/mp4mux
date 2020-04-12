@@ -6,7 +6,10 @@
 #include <stdexcept>
 #include <utility>
 
+namespace mux {
+
 namespace buf { class BufferSegment; }
+
 
 namespace net
 {
@@ -53,4 +56,4 @@ private:
 
 };
 
-} // namespace net
+}} // namespace mux::net

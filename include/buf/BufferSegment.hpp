@@ -2,8 +2,8 @@
 
 #include <buf/Buffer.hpp>
 
-namespace buf
-{
+namespace mux {
+namespace buf {
 
 class BufferSegment
 {
@@ -37,4 +37,4 @@ private:
     size_t mCount;
 };
 
-}
+}}

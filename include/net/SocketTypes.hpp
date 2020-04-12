@@ -2,6 +2,9 @@
 
 #include <stdint.h>
 
+namespace mux {
+namespace net {
+
 struct InAddr
 {
     uint32_t    addr;
@@ -14,3 +17,5 @@ struct SockaddrIn
     InAddr          addr;
     char            zero[8];
 };
+
+}}

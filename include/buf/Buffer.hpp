@@ -2,8 +2,8 @@
 
 #include <vector>
 
-namespace buf
-{
+namespace mux {
+namespace buf {
 
 class Buffer
 {
@@ -37,4 +37,4 @@ private:
     std::vector< char > mBuff;
 };
 
-}
+}}

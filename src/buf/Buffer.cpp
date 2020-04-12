@@ -2,7 +2,7 @@
 #include <stdexcept>
 #include <algorithm>
 
-using namespace buf;
+using namespace mux::buf;
 
 Buffer::Buffer(size_t size)
     : mBuff(size)

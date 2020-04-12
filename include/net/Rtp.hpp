@@ -1,5 +1,7 @@
 #pragma once
 
+namespace mux {
+namespace net {
 struct Rtp {
     unsigned version : 2;
     bool hasPadding : 1;
@@ -15,3 +17,5 @@ struct Rtp {
         return sizeof(Rtp) + (cc * 4);
     }
 };
+
+}}

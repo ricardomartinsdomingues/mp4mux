@@ -1,6 +1,6 @@
 #include <buf/BufferSegment.hpp>
 
-using namespace buf;
+using namespace mux::buf;
 
 BufferSegment::BufferSegment(Buffer &buff)
     : BufferSegment(buff, 0 , buff.size())

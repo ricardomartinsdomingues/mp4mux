@@ -10,12 +10,13 @@
 
 
 using namespace std::chrono_literals;
+using namespace mux;
 
 int main()
 {
     buf::Buffer buffer(1500);
     net::UdpSocket udpSocket(5000);
-    SockaddrIn inAddr;
+    net::SockaddrIn inAddr;
     int64_t bytesReceived = 0;
     int64_t bytesSecondCount = 0;
     std::string receiveBytesWritten = "0 B/s";
