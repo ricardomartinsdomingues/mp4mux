@@ -20,11 +20,20 @@ class UdpSocket
 public:
     UdpSocket(uint16_t port);
     UdpSocket(const std::string& ip, uint16_t port);
-    UdpSocket(const SockaddrIn& addr);
+    UdpSocket(const SockaddrIn& servaddr);
+    UdpSocket(const UdpSocket& rhs) = delete;
+    UdpSocket(UdpSocket&& rhs) { move(std::forward<UdpSocket>(rhs)); }
     ~UdpSocket();
+
+    UdpSocket& operator=(const UdpSocket& rhs) = delete;
+    UdpSocket& operator=(UdpSocket&& rhs) { return move(std::forward<UdpSocket>(rhs)); }
+
 
     int64_t receiveFrom(buf::BufferSegment& buffer, SockaddrIn& addr);
     int64_t sendTo(buf::BufferSegment& buffer, SockaddrIn& addr);
+
+private:
+    UdpSocket& move(UdpSocket&& rhs);
 
 private:
     int mSocketFD;
