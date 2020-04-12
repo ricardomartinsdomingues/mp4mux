@@ -20,6 +20,8 @@ set(buf_src
 
 set(net_src
     src/net/LinuxUdpSocket.cpp
+    src/net/Sock.cpp
+    src/net/Rtp.cpp
 )
 
 set(all_src

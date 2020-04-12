@@ -23,9 +23,9 @@ public:
         return mBuff[pos + mOffset];
     }
 
-    operator char*() { return mBuff[mOffset]; }
+    explicit operator char*() { return mBuff[mOffset]; }
 
-    operator const char*() const { return mBuff[mOffset]; }
+    explicit operator const char*() const { return mBuff[mOffset]; }
 
     size_t size() const { return mCount; }
 

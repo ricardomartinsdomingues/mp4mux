@@ -27,9 +27,9 @@ public:
         return &mBuff[pos];
     }
 
-    operator char*() { return &mBuff.front(); }
+    explicit operator char*() { return &mBuff.front(); }
 
-    operator const char*() const { return &mBuff.front(); }
+    explicit operator const char*() const { return &mBuff.front(); }
 
     size_t size() const { return mBuff.size(); }
 

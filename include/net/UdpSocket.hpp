@@ -1,6 +1,6 @@
 #pragma once
 
-#include <net/SocketTypes.hpp>
+#include <net/Sock.hpp>
 
 #include <string>
 #include <stdexcept>

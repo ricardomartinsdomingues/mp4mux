@@ -1,6 +1,6 @@
 #pragma once
 
-#include <stdint.h>
+#include <cstdint>
 
 namespace mux {
 namespace net {
@@ -17,5 +17,10 @@ struct SockaddrIn
     InAddr          addr;
     char            zero[8];
 };
+
+uint32_t htonl(uint32_t hostlong);
+uint16_t htons(uint16_t hostshort);
+uint32_t ntohl(uint32_t netlong);
+uint16_t ntohs(uint16_t netshort);
 
 }}
