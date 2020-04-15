@@ -7,22 +7,24 @@
     #include <arpa/inet.h>
 #endif
 
-uint32_t mux::net::htonl(uint32_t hostlong)
+using namespace mux::net;
+
+uint32_t mux_htonl(uint32_t hostlong)
 {
-    return ::htonl(hostlong);
+    return htonl(hostlong);
 }
 
-uint16_t mux::net::htons(uint16_t hostshort)
+uint16_t mux_htons(uint16_t hostshort)
 {
-    return ::htons(hostshort);
+    return htons(hostshort);
 }
 
-uint32_t mux::net::ntohl(uint32_t netlong)
+uint32_t mux_ntohl(uint32_t netlong)
 {
-    return ::ntohl(netlong);
+    return ntohl(netlong);
 }
 
-uint16_t mux::net::ntohs(uint16_t netshort)
+uint16_t mux_ntohs(uint16_t netshort)
 {
-    return ::ntohs(netshort);
+    return ntohs(netshort);
 }

@@ -21,7 +21,7 @@ SockaddrIn createSockaddr(const std::string& bindIpV4, uint16_t port)
 {
     struct SockaddrIn servaddr;
     servaddr.family = AF_INET;
-    servaddr.port = ::htons(port);
+    servaddr.port = htons(port);
 
    if(inet_pton(servaddr.family , bindIpV4.c_str(), &servaddr.addr) < 1)
    {

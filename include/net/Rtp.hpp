@@ -52,9 +52,9 @@ public:
     uint16_t getPayloadType() const { return mRtpheader.payloadType; }
 
     // The follwing methods need to be converted to right endianness
-    uint16_t getSequence() const { return ntohs(mRtpheader.sequence); }
-    uint32_t getTimestamp() const { return net::ntohl(mRtpheader.timestamp); }
-    uint32_t getSyncSrc() const { return net::ntohl(mRtpheader.ssrc); }
+    uint16_t getSequence() const { return mux_ntohs(mRtpheader.sequence); }
+    uint32_t getTimestamp() const { return mux_ntohs(mRtpheader.timestamp); }
+    uint32_t getSyncSrc() const { return mux_ntohs(mRtpheader.ssrc); }
 
 
 private:
