@@ -17,10 +17,10 @@ public:
     RtpSession(const net::SockaddrIn& address);
 
 public:
-    bool getData(RtpData& outData);
+    bool getData(RtpData& outData, buf::BufferSegment buff);
 
 public:
-    bool isClosed() const;
+    bool isClosed() const { return mIsClosed; }
 
 private:
     UdpSocket mSocket;
@@ -32,7 +32,7 @@ struct RtpData
 {
     Rtp rtp;
     size_t payloadOffset;
-    buf::BufferSegment data;
+    size_t dataSize;
 };
 
 }} //namespace mux::net

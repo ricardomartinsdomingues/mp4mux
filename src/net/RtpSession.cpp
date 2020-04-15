@@ -19,7 +19,7 @@ RtpSession::RtpSession(const net::SockaddrIn& address)
     , mIsClosed(false)
 { }
 
-bool RtpSession::getData(RtpData& outData)
+bool RtpSession::getData(RtpData& outData, buf::BufferSegment buff)
 {
     if(mIsClosed)
     {
@@ -28,7 +28,7 @@ bool RtpSession::getData(RtpData& outData)
     }
 
     net::SockaddrIn addr;
-    int64_t bytesReceived =  mSocket.receiveFrom(outData.data, addr);
+    int64_t bytesReceived =  mSocket.receiveFrom(buff, addr);
     
     if(bytesReceived == 0)
     {
@@ -43,7 +43,7 @@ bool RtpSession::getData(RtpData& outData)
         return false;
     }
 
-    outData.rtp = Rtp::decode(outData.data);
+    outData.rtp = Rtp::decode(buff);
     if(outData.rtp.getVersion() != Rtp::kVersion)
     {
         std::cout << "Unsupported RTP version. Version: " << outData.rtp.getVersion() << std::endl;
@@ -51,5 +51,6 @@ bool RtpSession::getData(RtpData& outData)
     }
 
     outData.payloadOffset = Rtp::kRTPHeaderMinSize + (outData.rtp.getCsrcCount() * 4);
+    outData.dataSize = static_cast< size_t >(bytesReceived);
     return true;
 }
