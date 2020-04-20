@@ -10,16 +10,7 @@ Buffer::Buffer(size_t size)
 
 void Buffer::resize(size_t newSize)
 {
-    if(newSize >= size())
-    {
-        mBuff.reserve(newSize);
-    }
-    else
-    {
-        std::vector < char > newBuff(newSize);
-        std::copy(mBuff.begin(), mBuff.begin() + newSize, newBuff.begin());
-        mBuff = std::move(newBuff);
-    }
+    mBuff.resize(newSize);
 }
 
 void Buffer::increase(size_t s)

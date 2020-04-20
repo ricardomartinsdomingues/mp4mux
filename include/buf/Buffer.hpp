@@ -6,7 +6,11 @@ namespace mux {
 namespace buf {
 
 class Buffer
+
 {
+public:
+    using TIter = std::vector< char >::iterator;
+    using TConstIter = std::vector< char >::const_iterator;
 
 public:
     Buffer(size_t size);
@@ -27,9 +31,15 @@ public:
         return &mBuff[pos];
     }
 
-    explicit operator char*() { return &mBuff.front(); }
+    explicit operator char*() noexcept { return mBuff.data(); }
 
-    explicit operator const char*() const { return &mBuff.front(); }
+    explicit operator const char*() const noexcept { return mBuff.data(); }
+
+    TIter begin() { return mBuff.begin(); }
+    TConstIter begin() const { return mBuff.begin(); }
+
+    TIter end() { return mBuff.begin() + mBuff.capacity(); }
+    TConstIter end() const { return mBuff.begin() + mBuff.capacity(); }
 
     size_t size() const { return mBuff.size(); }
 
