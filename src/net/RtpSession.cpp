@@ -51,6 +51,7 @@ bool RtpSession::getData(RtpData& outData, buf::BufferSegment buff)
     }
 
     outData.payloadOffset = Rtp::kRTPHeaderMinSize + (outData.rtp.getCsrcCount() * 4);
-    outData.dataSize = static_cast< size_t >(bytesReceived);
+    outData.paddingSize = 0; //TODO: reading padding. For now we assume it is zero
+    outData.payloadSize = static_cast< size_t >(bytesReceived) - outData.payloadOffset - outData.paddingSize;
     return true;
 }

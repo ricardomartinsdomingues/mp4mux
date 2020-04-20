@@ -30,9 +30,17 @@ private:
 
 struct RtpData
 {
+    /*! RTP Header info */
     Rtp rtp;
+
+    /*! RTP payload offset */
     size_t payloadOffset;
-    size_t dataSize;
+
+    /*! RTP Payload size (With no RTP header neither padding) */
+    size_t payloadSize;
+
+    /*! RTP padding size */
+    size_t paddingSize;
 };
 
 }} //namespace mux::net
