@@ -6,9 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 if (NOT MSVC)
     add_compile_options(-pthread)
-    add_compile_options(-Werror=return-type)                   # error on missing return type
-    add_compile_options(-Werror=format)                        # error on wrong printf formats
-    add_compile_options(-Werror=parentheses)                   # error when using ambiguous syntax
+    add_compile_options(-Werror)
 endif()
 
 include_directories(${PROJECT_SOURCE_DIR}/include)
