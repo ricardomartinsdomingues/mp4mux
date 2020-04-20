@@ -7,7 +7,8 @@
     #include <arpa/inet.h>
 #endif
 
-using namespace mux::net;
+namespace mux {
+namespace net {
 
 uint32_t mux_htonl(uint32_t hostlong)
 {
@@ -28,3 +29,5 @@ uint16_t mux_ntohs(uint16_t netshort)
 {
     return ntohs(netshort);
 }
+
+}} //namespace mux::net
