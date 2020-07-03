@@ -23,9 +23,15 @@ set(net_src
     src/net/RtpSession.cpp
 )
 
+set(mux_src
+    src/packer/RtpPackerFactory.cpp
+    src/packer/RtpH264Packer.cpp
+)
+
 set(all_src
     ${buf_src}
     ${net_src}
+    ${mux_src}
 )
 
 add_executable(mp4mux
